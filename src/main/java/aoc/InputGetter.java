@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class InputGetter {
@@ -13,12 +13,17 @@ public class InputGetter {
         try {
             fileReader = new Scanner(new File(filePath));
         } catch (FileNotFoundException e) {
-            System.out.println("Could not open file");
+            e.printStackTrace();
         }
         return fileReader;
     }
 
-    public String getPuzzleInput(Path filePath) throws IOException {
-        return Files.readString(filePath);
+    public String getPuzzleInputAsString(String filePath) {
+        try {
+            return Files.readString(Paths.get(filePath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

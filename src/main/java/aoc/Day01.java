@@ -25,6 +25,7 @@ public class Day01 {
         Collections.sort(calorieTotals, Collections.reverseOrder());
         System.out.println("Single most calories are: " + calorieTotals.get(0));
 
+        // sums first 3 elements of calorieTotals list
         int topThreeTotals = calorieTotals.stream().mapToInt(Integer::intValue).limit(3).sum();
         System.out.println("Three most calories are: " + topThreeTotals);
     }
