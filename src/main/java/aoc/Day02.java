@@ -59,6 +59,9 @@ public class Day02 {
         InputGetter inputGetter = new InputGetter();
 
         String input = inputGetter.getPuzzleInputAsString("input/day02.in");
+        if (input == null)
+            System.exit(1);
+
         solvePartOne(input);
         solvePartTwo(input);
     }

@@ -17,6 +17,9 @@ public class Day06 {
         InputGetter inputGetter = new InputGetter();
 
         String input = inputGetter.getPuzzleInputAsString("input/day06.in");
+        if (input == null)
+            System.exit(1);
+
         solvePuzzle(input, 4); // part 1
         solvePuzzle(input, 14); // part 2
     }

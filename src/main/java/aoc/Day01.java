@@ -34,6 +34,9 @@ public class Day01 {
         InputGetter inputGetter = new InputGetter();
 
         Scanner input = inputGetter.getPuzzleInputAsScanner("input/day01.in");
+        if (input == null)
+            System.exit(1);
+
         solvePuzzle(input);
         input.close();
     }
