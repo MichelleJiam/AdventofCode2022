@@ -6,8 +6,11 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class InputGetter {
     public Scanner getPuzzleInputAsScanner(String filePath) {
@@ -36,5 +39,18 @@ public class InputGetter {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public List<int[]> getPuzzleInputAsIntArrayList(String filePath) {
+        List<String> stringList = getPuzzleInputAsStringList(filePath);
+        if (stringList == null)
+                return null;
+
+        List<int[]> intList = new ArrayList<int[]>(stringList.size());
+        for (String line : stringList) {
+            int[] array = Stream.of(line.split("")).mapToInt(Integer::parseInt).toArray();
+            intList.add(array);
+        }
+        return intList;
     }
 }
