@@ -40,7 +40,7 @@ public class Day08 {
     public static void main(String[] args) {
         InputGetter inputGetter = new InputGetter();
 
-        IntGrid input = new IntGrid(inputGetter.getPuzzleInputAsIntArrayList("input/day08.in"));
+        IntGrid input = new IntGrid(inputGetter.getPuzzleInputAsIntArrayList("input/day08.in", ""));
         if (input == null)
             System.exit(1);
 

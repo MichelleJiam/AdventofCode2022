@@ -40,14 +40,14 @@ public class InputGetter {
         return null;
     }
 
-    public List<int[]> getPuzzleInputAsIntArrayList(String filePath) {
+    public List<int[]> getPuzzleInputAsIntArrayList(String filePath, String numberDelimiter) {
         List<String> stringList = getPuzzleInputAsStringList(filePath);
         if (stringList == null)
                 return null;
 
         List<int[]> intList = new ArrayList<int[]>(stringList.size());
         for (String line : stringList) {
-            int[] array = Stream.of(line.split("")).mapToInt(Integer::parseInt).toArray();
+            int[] array = Stream.of(line.split(numberDelimiter)).mapToInt(Integer::parseInt).toArray();
             intList.add(array);
         }
         return intList;

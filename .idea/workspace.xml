@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02f35fb9-fd13-463e-91e1-f6a6a85cb36e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aoc/GridChecker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/aoc/IntGrid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/test.in" beforeDir="false" afterPath="$PROJECT_DIR$/input/test.in" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/aoc/Day08.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aoc/Day08.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/aoc/InputGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aoc/InputGetter.java" afterDir="false" />
     </list>
@@ -57,7 +54,20 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Day08">
+  <component name="RunManager" selected="Application.Day04">
+    <configuration name="Day04" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="aoc.Day04" />
+      <module name="2022" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aoc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Day08" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="aoc.Day08" />
       <module name="2022" />
@@ -107,11 +117,13 @@
     </configuration>
     <list>
       <item itemvalue="Application.Run Java" />
+      <item itemvalue="Application.Day04" />
       <item itemvalue="Application.Day08" />
       <item itemvalue="Maven.AdventofCode2022 [clean,package]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Day04" />
         <item itemvalue="Application.Day08" />
       </list>
     </recent_temporary>
@@ -135,7 +147,8 @@
       <workItem from="1670515624610" duration="244000" />
       <workItem from="1670516043364" duration="5647000" />
       <workItem from="1670602520118" duration="192000" />
-      <workItem from="1670602849708" duration="4341000" />
+      <workItem from="1670602849708" duration="4372000" />
+      <workItem from="1670621830953" duration="1431000" />
     </task>
     <servers />
   </component>
