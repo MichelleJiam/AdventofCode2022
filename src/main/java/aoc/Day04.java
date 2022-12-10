@@ -1,51 +1,61 @@
 package aoc;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
-import java.util.function.BinaryOperator;
-import java.util.function.IntBinaryOperator;
 
 public class Day04 {
-
-    private static int checkOverlap(String elf1, String elf2, IntBinaryOperator op) {
-        int[] elf1Sections = Arrays.stream(elf1.split("-")).mapToInt(Integer::parseInt).toArray();
-        int[] elf2Sections = Arrays.stream(elf2.split("-")).mapToInt(Integer::parseInt).toArray();
-
-        if ((elf1Sections[0] >= elf2Sections[0] && op.applyAsInt(elf1Sections[1], elf2Sections[1]) == 1)
-            || (elf2Sections[0] >= elf1Sections[0] && op.applyAsInt(elf2Sections[1], elf1Sections[1]) == 1)) {
-            return 1;
+    private static boolean checkPartialOverlap(int[] elf1, int[] elf2) {
+        if ((elf1[0] >= elf2[0] && elf1[0] <= elf2[1])
+                || (elf2[0] >= elf1[0] && elf2[0] <= elf1[1])) {
+            return true;
         }
-        return 0;
+        return false;
+    }
+
+    private static boolean checkFullOverlap(int[] elf1, int[] elf2) {
+        if ((elf1[0] >= elf2[0] && elf1[1] <= elf2[1])
+            || (elf2[0] >= elf1[0] && elf2[1] <= elf1[1])) {
+            return true;
+        }
+        return false;
+    }
+
+    private static List<int[]> parsePairs(String line) {
+        int[] sections = Arrays.stream(line.split("[-,]")).mapToInt(Integer::parseInt).toArray();
+        List<int[]> pairs = new ArrayList<int[]>(2);
+        pairs.add(new int[]{sections[0], sections[1]}); // elf 1
+        pairs.add(new int[]{sections[2], sections[3]}); // elf 2
+        return pairs;
     }
 
     private static void solvePartOne(List<String> input) {
-        int fullyOverlappingPairs = 0;
-        IntBinaryOperator comparison = (a,b) -> a <= b ? 1 : 0;
+        long fullyOverlappingPairs = 0;
 
-        for (String line : input) {
-            String[] pair = line.split(",");
-            fullyOverlappingPairs += checkOverlap(pair[0], pair[1], comparison);
-        }
-        System.out.println("Overlapping pairs: " + fullyOverlappingPairs);
+        fullyOverlappingPairs = input.stream()
+                                    .map(line -> parsePairs(line))
+                                    .filter(pair -> checkFullOverlap(pair.get(0), pair.get(1)))
+                                    .count();
+
+        System.out.println("Fully overlapping pairs: " + fullyOverlappingPairs);
     }
 
-//    private static void solvePartTwo(List<String> input) {
-//        int overlappingPairs = 0;
-//
-//        IntBinaryOperator comparison = (a,b) -> a <= b ? 1 : 0;
-//
-//        for (String line : input) {
-//            String[] pair = line.split(",");
-//            fullyOverlappingPairs += checkOverlap(pair[0], pair[1], comparison);
-//        }
-//        System.out.println("Overlapping pairs: " + fullyOverlappingPairs);
-//    }
+    private static void solvePartTwo(List<String> input) {
+        long overlappingPairs = 0;
+
+        overlappingPairs = input.stream()
+                                .map(line -> parsePairs(line))
+                                .filter(pair -> checkPartialOverlap(pair.get(0), pair.get(1)))
+                                .count();
+
+        System.out.println("Overlapping pairs: " + overlappingPairs);
+    }
 
     public static void main(String[] args) {
         InputGetter inputGetter = new InputGetter();
         List<String> input = inputGetter.getPuzzleInputAsStringList("input/day04.in");
 
         solvePartOne(input);
+        solvePartTwo(input);
     }
 }
